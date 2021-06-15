@@ -7,13 +7,28 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 
 //(a) Home Team name for 2014 world cup final
 
+var worldCup2014 = fifaData.filter( function(worldCupData){
+    return worldCupData.Year === 2014 && worldCupData.Stage === "Final";
+});
+
+console.log(worldCup2014["Home Team Name"]);
+
 //(b) Away Team name for 2014 world cup final
+console.log(worldCup2014["Away Team Name"]);
 
 //(c) Home Team goals for 2014 world cup final
+console.log(worldCup2014["Home Team Goals"]);
 
 //(d) Away Team goals for 2014 world cup final
+console.log(worldCup2014["Away Team Goals"]);
 
 //(e) Winner of 2014 world cup final */
+if (worldCup2014["Home Team Goals"] > worldCup2014["Away Team Goals"])
+    console.log("Home Team is winner");
+else if (worldCup2014["Home Team Goals"] > worldCup2014["Away Team Goals"])
+    console.log("Away Team is winner");
+else
+    console.log("Game is tied");
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -24,8 +39,22 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
+function getFinals(data) {
+    
+    var finals = data.filter(function(finalMatch){
+        return finalMatch["Stage"] == "Final";
+    });
+
+    return finals;
+
+    /*var results = [];
+
+    finals.forEach(function(final){
+        results.push(final["Home Team Name"]);
+        results.push(final["Away Team Name"]);
+    });
+
+    return results;*/
 }
 
 
@@ -36,8 +65,8 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
+function getYears(data, getFinals) {
+    
 }
 
 
